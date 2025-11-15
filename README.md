@@ -15,7 +15,7 @@ Usuários deverão ser capazes de:
 
 ### Meu resultado
 
-- Live Site: [Github Page](https://gus-campos.github.io/web-challenge-clipboard/)
+- Live Site: [Github Page](https://gus-campos.github.io/web-challenge-chat-app/)
 
 #### Screenshots
 <img width="963" height="688" alt="image" src="https://github.com/user-attachments/assets/a90881ca-aafc-4450-870e-236f212f87a8" />
