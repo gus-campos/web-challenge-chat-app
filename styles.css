@@ -322,7 +322,7 @@ main {
 .product {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
 
   width: 250px;
@@ -330,10 +330,20 @@ main {
 
   background: var(--theme-gradient);
   color: white;
+
+  gap: var(--space-sm);
+}
+
+.product .option-circle {
+  width: 1.2em;
+  aspect-ratio: 1 / 1;
+  border: 2px solid var(--purple-300);
+  border-radius: var(--radius-round);
 }
 
 .product .price {
   font-weight: 700;
+  margin-left: auto;
 }
 
 .product .product-name {
