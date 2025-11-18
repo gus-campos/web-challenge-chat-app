@@ -36,8 +36,9 @@
 
   --theme-gradient: linear-gradient(
     to top right,
-    var(--purple-500),
-    var(--pink-500)
+    var(--purple-500) 0%,
+    var(--pink-500) 80%,
+    var(--pink-500) 100%
   );
 }
 
@@ -129,7 +130,7 @@ main {
   width: 375px;
   min-width: 375px;
   max-width: 375px;
-  height: 760px;
+  height: 750px;
   background-color: white;
   box-shadow: 0 0 50px 10px hsl(0, 0%, 60%);
 
@@ -138,16 +139,18 @@ main {
 }
 
 .speaker {
+  --speaker-radius: 17px;
+
   position: absolute;
 
   left: 50%;
   transform: translate(-50%, -15px);
 
-  height: 40px;
+  height: 43px;
   width: 200px;
 
   background-color: white;
-  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  border-radius: 0 0 var(--speaker-radius) var(--speaker-radius);
 }
 
 .phone-screen {
@@ -174,9 +177,9 @@ main {
 
   background-color: var(--purple-600);
   border-radius: var(--radius-md);
-  height: 90px;
+  height: 92px;
   background: var(--theme-gradient);
-  padding: 35px var(--space-md) 0 var(--space-md);
+  padding: 37px var(--space-lg) 0 var(--space-lg);
 }
 
 .contact {
@@ -213,7 +216,7 @@ main {
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  gap: 3px;
+  gap: 2px;
   margin-left: auto;
 }
 
@@ -252,12 +255,13 @@ main {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-md);
+  margin-top: 14px;
+  gap: 10px;
 }
 
 .bubble {
   margin: 0 var(--space-md);
-  padding: var(--space-md);
+  padding: 14px var(--space-md);
   border-radius: var(--radius-lg);
 }
 
@@ -269,7 +273,7 @@ main {
 
 .source-they {
   background-color: #ede5f4;
-  border-bottom-left-radius: 0;
+  border-bottom-left-radius: var(--radius-sm);
 
   color: var(--purple-600);
 }
@@ -277,46 +281,34 @@ main {
 .source-me {
   background-color: white;
 
-  border-bottom-right-radius: 0;
+  border-bottom-right-radius: var(--radius-sm);
   align-self: flex-end;
-  text-align: end;
 
   color: var(--gray-500);
 
-  box-shadow: 0 7px 5px 0 hsl(0, 0%, 50%, 10%);
+  box-shadow: 0 12px 5px 0 hsl(0, 0%, 50%, 10%);
+}
+
+.source-me + .source-they {
+  margin-top: 12px;
+}
+
+.source-they + .source-me {
+  margin-top: 12px;
 }
 
 .images {
   display: flex;
-  gap: var(--space-md);
+  gap: var(--space-sm);
   justify-content: end;
   margin: 0 var(--space-md);
-  align-self: end;
+
+  background-color: unset;
 }
 
 .images img {
   border-radius: var(--radius-lg);
   width: 60px;
-}
-
-.bubble-input {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  background-color: white;
-  margin: var(--space-sm);
-  border-radius: var(--radius-round);
-
-  height: 50px;
-  margin-top: auto;
-
-  padding: var(--space-xs);
-}
-
-.bubble-input p {
-  margin-left: var(--space-lg);
-  color: var(--gray-300);
 }
 
 .product {
@@ -350,6 +342,26 @@ main {
   font-weight: 700;
   font-weight: 400;
   font-size: 0.8em;
+}
+
+.bubble-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  background-color: white;
+  margin: var(--space-md) var(--space-sm);
+  border-radius: var(--radius-round);
+
+  height: 50px;
+  margin-top: auto;
+
+  padding: var(--space-xs);
+}
+
+.bubble-input p {
+  margin-left: var(--space-lg);
+  color: var(--gray-300);
 }
 
 .send-button {
