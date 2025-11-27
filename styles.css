@@ -40,6 +40,19 @@
     var(--pink-500) 80%,
     var(--pink-500) 100%
   );
+
+  --theme-gradient-reverse: linear-gradient(
+    to bottom left,
+    var(--purple-500) 0%,
+    var(--pink-500) 80%,
+    var(--pink-500) 100%
+  );
+
+  --shape-width: 500px;
+  --shape-height: 850px;
+
+  --phone-height: 750px;
+  --phone-width: 375px;
 }
 
 * {
@@ -61,26 +74,14 @@ body {
   background-color: white;
 }
 
-main {
-  height: 100%;
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  gap: 0px;
-}
-
-h1,
-h2,
-h3 {
-  font-weight: 500;
-}
-
 h1 {
-  font-size: 3em;
+  font-weight: 500;
+  font-size: 2.5em;
+  margin: 0;
+}
+
+p {
+  line-height: 1.7em;
 }
 
 /* Background shapes */
@@ -98,8 +99,8 @@ h1 {
 .shape-base {
   position: fixed;
 
-  width: 400px;
-  height: 750px;
+  width: var(--shape-width);
+  height: var(--shape-height);
   border-radius: var(--radius-round);
 }
 
@@ -107,39 +108,54 @@ h1 {
   background: var(--theme-gradient);
   left: 0;
   top: 0;
-  transform: translate(-100px, -200px);
+  transform: translate(
+    calc((var(--shape-width) * -1) + 50vw), 
+    calc(var(--shape-width) / -2)
+  ) 
+}
+
+main {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: var(--gap-lg) 0;
+  gap: var(--space-lg);
 }
 
 .phone-wrapper {
-  --phone-height: 700px;
+  --wrapper-height: 600px;
 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
 
-  height: var(--phone-height);
-  min-height: var(--phone-height);
-  max-height: var(--phone-height);
+  height: var(--wrapper-height);
+  min-height: var(--wrapper-height);
+  max-height: var(--wrapper-height);
 
   overflow: hidden;
-
 }
 
 .phone {
   position: relative;
 
-  width: 375px;
-  min-width: 375px;
-  max-width: 375px;
-  height: 750px;
+  width: var(--phone-width);
+  min-width: var(--phone-width);
+  max-width: var(--phone-width);
+  height: var(--phone-height);
   background-color: white;
   box-shadow: 20px 20px 30px 15px hsl(0, 0%, 93%);
 
   padding: 15px;
   border-radius: var(--radius-xl);
 
-  transform: scale(0.8);
+  transform: scale(0.7);
 }
 
 .speaker {
@@ -324,7 +340,7 @@ h1 {
   width: 250px;
   height: 50px;
 
-  background: var(--theme-gradient);
+  background: var(--theme-gradient-reverse);
   color: white;
 
   gap: var(--space-sm);
@@ -423,28 +439,46 @@ h1 {
 }
 
 @media (min-width: 1024px) {
+
+  :root {
+    --shape-height: 950px;
+  }
+
   .shape-base {
     position: fixed;
 
-    width: 400px;
-    height: 1000px;
+    width: var(--shape-width);
+    height: var(--shape-height);
     border-radius: var(--radius-round);
+  }
+
+  .shape-a {
+    background-color: #f7f4fb;
+    right: 0;
+    bottom: 0;
+    transform: translate(
+      calc((var(--shape-width) * -0.25)), 
+      calc(var(--shape-width) / -2)
+    ) 
   }
 
   .shape-b {
     background-color: #f7f4fb;
     right: 0;
-    bottom: 0;
-    transform: translate(100px, 200px);
+    bottom: 0;    
+    transform: translate(
+      calc((var(--shape-width) * 0.25)), 
+      calc(var(--shape-width) / 2)
+    ) 
   }
 
   main {
     flex-direction: row;
-    gap: var(--gap-lg);
+    gap: var(--gap-sm);
   }
 
   .summary {
     text-align: start;
-    max-width: 500px;
+    max-width: 450px;
   }
 }
